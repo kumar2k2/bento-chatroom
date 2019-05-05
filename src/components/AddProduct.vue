@@ -1,19 +1,35 @@
 <template>
   <div class="product-action-bar">
-    <input
-      placeholder="product name..."
-      class="product-name-input"
-      type="text"
-      :value="productNameToCreate"
-      @input="setProductNameToCreate($event.target.value)"
-      @keypress.enter="triggerAddProductAction"
-    />
-    <div
-      :class="{ disabled: productCreationPending }"
-      class="create-product-btn"
-      @click="triggerAddProductAction"
-    >
-      add product
+    <div class="row">
+      <div class="col-12">
+        <input
+          placeholder="product name..."
+          class="product-name-input"
+          type="text"
+          :value="productNameToCreate"
+          @input="setProductNameToCreate($event.target.value)"
+          @keypress.enter="triggerAddProductAction"
+        />
+      </div>
+      <div class="col-12">
+        <textarea
+          placeholder="Product Description..."
+          class="product-description-input"
+          type="text"
+          :value="productDescriptionToCreate"
+          @input="setProductDescriptionToCreate($event.target.value)"
+          @keypress.enter="triggerAddProductAction"
+        />
+      </div>
+      <div class="col-12">
+        <div
+          :class="{ disabled: productCreationPending }"
+          class="create-product-btn"
+          @click="triggerAddProductAction"
+        >
+          add product
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -27,7 +43,7 @@ export default {
     'productCreationPending'
   ]),
   methods: {
-    ...mapMutations('products', ['setProductNameToCreate']),
+    ...mapMutations('products', ['setProductNameToCreate', 'setProductDescriptionToCreate']),
     ...mapActions('products', ['triggerAddProductAction'])
   }
 }
@@ -41,7 +57,7 @@ export default {
   align-items: center;
   justify-content: center;
 
-  .product-name-input {
+  .product-name-input, .product-description-input {
     padding-left: 5px;
     height: 30px;
     width: 150px;

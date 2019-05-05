@@ -3,6 +3,8 @@ export default {
   setProductNameToCreate: (state, productNameToCreate) =>
     (state.productNameToCreate = productNameToCreate),
 
+  setProductDescriptionToCreate: (state, productDescriptionToCreate) =>
+    (state.productDescriptionToCreate = productDescriptionToCreate),
   /* Products */
   setProducts: (state, products) => (state.products = products),
   addProduct: (state, product) => state.products.push(product),
@@ -22,4 +24,4 @@ export default {
   /* Product creation */
   setProductCreationPending: (state, value) =>
     (state.productCreationPending = value)
-}
+};
