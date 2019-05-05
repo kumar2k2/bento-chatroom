@@ -1,14 +1,15 @@
-import firebase from 'firebase/app'
-import 'firebase/auth'
+import firebase from "firebase/app";
+import "firebase/auth";
 
 // The configuration below is not sensitive data. You can serenely add your config here
 const config = {
-  apiKey: 'AIzaSyCe6CSzOUs6_Ij_VHa6hancdEi6CNBtw7c',
-  authDomain: 'bento-starter.firebaseapp.com',
-  databaseURL: 'https://bento-starter.firebaseio.com',
-  projectId: 'bento-starter',
-  storageBucket: 'bento-starter.appspot.com',
-  messagingSenderId: '458464977217'
+  apiKey: "AIzaSyARKiwmpY-XZE-ZXzcdC2O0GJkDQL9I9To",
+  authDomain: "bento-chatroom.firebaseapp.com",
+  databaseURL: "https://bento-chatroom.firebaseio.com",
+  projectId: "bento-chatroom",
+  storageBucket: "bento-chatroom.appspot.com",
+  messagingSenderId: "19241326689",
+  appId: "1:19241326689:web:ad76a796a38fa97f"
 }
 
-firebase.initializeApp(config)
+firebase.initializeApp(config);
