@@ -102,6 +102,7 @@ describe("products module action", () => {
       it("should set input name to empty", () => {
         actions.triggerAddProductAction({ dispatch, state, commit })
         expect(commit).toHaveBeenCalledWith("setProductNameToCreate", "")
+        expect(commit).toHaveBeenCalledWith("setProductDescriptionToCreate", "")
       })
 
       it("should dispatch create product action", () => {

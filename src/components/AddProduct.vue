@@ -22,6 +22,12 @@
         />
       </div>
       <div class="col-12">
+        <input type="file" accept="image/*" :value="productImageToCreate" @change="setProductImageToCreate"/>
+      </div>
+      <div class="col-12 image-preview" v-if="imageData.length > 0">
+                <img class="preview" :src="imageData">
+            </div>
+      <div class="col-12">
         <div
           :class="{ disabled: productCreationPending }"
           class="create-product-btn"
@@ -38,11 +44,28 @@
 import { mapMutations, mapState, mapActions } from 'vuex'
 
 export default {
+  data() {
+    return {
+      imageData: ""
+    }
+  },
   computed: mapState('products', [
     'productNameToCreate',
-    'productCreationPending'
+    'productDescriptionToCreate',
+    'productCreationPending',
+    'productImageToCreate'
   ]),
   methods: {
+    setProductImageToCreate: function(event) {
+      var input = event.target;
+      if (input.files && input.files[0]) {
+        var reader = new FileReader();
+        reader.onload = (e) => {
+          this.imageData = e.target.result;
+        }
+        reader.readAsDataURL(input.files[0]);
+      }
+    },
     ...mapMutations('products', ['setProductNameToCreate', 'setProductDescriptionToCreate']),
     ...mapActions('products', ['triggerAddProductAction'])
   }

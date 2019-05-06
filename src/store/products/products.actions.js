@@ -31,6 +31,7 @@ export default {
 
     const product = { name: state.productNameToCreate,  description: state.productDescriptionToCreate};
     commit("setProductNameToCreate", "");
+    commit("setProductDescriptionToCreate", "");
     dispatch("createUserProduct", product);
   },
 
