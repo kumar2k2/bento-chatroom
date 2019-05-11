@@ -100,13 +100,14 @@ describe("products module action", () => {
       }
 
       it("should set input name to empty", () => {
-        actions.triggerAddProductAction({ dispatch, state, commit })
-        expect(commit).toHaveBeenCalledWith("setProductNameToCreate", "")
-        expect(commit).toHaveBeenCalledWith("setProductDescriptionToCreate", "")
+        actions.triggerAddProductAction({ dispatch, state, commit });
+        expect(commit).toHaveBeenCalledWith("setProductNameToCreate", "");
+        expect(commit).toHaveBeenCalledWith("setProductDescriptionToCreate", "");
+        expect(commit).toHaveBeenCalledWith("setProductImageToCreate", "");
       })
 
       it("should dispatch create product action", () => {
-        actions.triggerAddProductAction({ dispatch, state, commit })
+        actions.triggerAddProductAction({ dispatch, state, commit });
         expect(dispatch).toHaveBeenCalledWith("createUserProduct", {
           name: "todo"
         })

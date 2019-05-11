@@ -29,9 +29,14 @@ export default {
   triggerAddProductAction: ({ dispatch, state, commit }) => {
     if (state.productNameToCreate === "") return;
 
-    const product = { name: state.productNameToCreate,  description: state.productDescriptionToCreate};
+    const product = {
+      name: state.productNameToCreate,
+      description: state.productDescriptionToCreate,
+      image: state.productImageToCreate
+    };
     commit("setProductNameToCreate", "");
     commit("setProductDescriptionToCreate", "");
+    commit("setProductImageToCreate", "");
     dispatch("createUserProduct", product);
   },
 

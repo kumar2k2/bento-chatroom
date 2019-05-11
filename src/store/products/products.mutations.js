@@ -5,6 +5,10 @@ export default {
 
   setProductDescriptionToCreate: (state, productDescriptionToCreate) =>
     (state.productDescriptionToCreate = productDescriptionToCreate),
+
+  setProductImageToCreate: (state, productImageToCreate) =>
+    (state.productImageToCreate = productImageToCreate),
+
   /* Products */
   setProducts: (state, products) => (state.products = products),
   addProduct: (state, product) => state.products.push(product),

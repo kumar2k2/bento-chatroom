@@ -1,6 +1,7 @@
 <template>
   <div class="product-item">
-    <div>#{{ index }} {{ data.name }}</div>
+    <div>#{{ index }} {{ data.name }} {{ data.description }}</div>
+    <img class="preview" :src="data.image">
     <div
       v-if="!disableActions"
       class="delete-btn"
@@ -24,6 +25,11 @@ export default {
 
 <style lang="scss" scoped>
 @import '@/theme/variables.scss';
+
+img {
+  width: 100px;
+  height: 100px;
+}
 
 .product-item {
   display: flex;

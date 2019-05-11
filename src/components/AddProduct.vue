@@ -22,7 +22,7 @@
         />
       </div>
       <div class="col-12">
-        <input type="file" accept="image/*" :value="productImageToCreate" @change="setProductImageToCreate"/>
+        <input type="file" accept="image/*" :value="productImageToCreate" @change="setProductImageToPreview"/>
       </div>
       <div class="col-12 image-preview" v-if="imageData.length > 0">
                 <img class="preview" :src="imageData">
@@ -56,12 +56,14 @@ export default {
     'productImageToCreate'
   ]),
   methods: {
-    setProductImageToCreate: function(event) {
+    setProductImageToPreview: function(event) {
       var input = event.target;
       if (input.files && input.files[0]) {
         var reader = new FileReader();
         reader.onload = (e) => {
           this.imageData = e.target.result;
+          // setProductImageToCreate($this.imageData);
+          mapMutations('products', ['setProductImageToCreate'])
         }
         reader.readAsDataURL(input.files[0]);
       }
